@@ -1,7 +1,8 @@
 var response1;
 var response2;
 var token = "your token here";
-
+var instance = "your instance here";
+var courseID = "course course id";
 
 run();
 
@@ -41,7 +42,7 @@ function runAssignmentCall() {
             }
         });
 
-        xhr.open("GET", "https://{yourInstance}.instructure.com/api/v1/courses/{your_course}/assignments/?per_page=100&page=1");
+        xhr.open("GET", "https://" + instance + ".instructure.com/api/v1/courses/" + courseID + "/assignments/?per_page=100&page=1");
         xhr.setRequestHeader("Authorization", "Bearer " + token);
 
         xhr.send(data);
@@ -72,7 +73,7 @@ function unmuteAssignmentCall(assignmentID) {
       }
     });
     
-    xhr.open("PUT", "https://{yourInstance}.instructure.com/api/v1/courses/{yourCourse}/assignments/" + assignmentID + "?assignment[muted]=false");
+    xhr.open("PUT", "https://" + instance + ".instructure.com/api/v1/courses/" + courseID + "/assignments/" + assignmentID + "?assignment[muted]=false");
     xhr.setRequestHeader("Authorization", "Bearer " + token);
    
     
