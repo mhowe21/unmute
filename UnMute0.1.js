@@ -1,8 +1,8 @@
 var response1;
 var response2;
-var token = "your token here";
-var instance = "your instance here";
-var courseID = "course course id";
+var token = "token";
+var instance = "instance";
+var courseID = "course";
 
 run();
 
@@ -37,7 +37,7 @@ function runAssignmentCall() {
                     resolve(response);
                 }
                 if (this.status != 200) {
-                    reject("something went wrong with the call")
+                    reject("something went wrong with the call");
                 }
             }
         });
