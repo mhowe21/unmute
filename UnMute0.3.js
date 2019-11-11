@@ -1,7 +1,7 @@
 var response1;
 var response2;
 var token = "token";
-var courseID = "course";
+var courseID = document.URL.substring(document.URL.indexOf('/courses/'));
 var instance = window.location.hostname;
 
 run();
@@ -47,7 +47,7 @@ function runAssignmentCall() {
             }
         });
 
-        xhr.open("GET", "https://" + instance + ".instructure.com/api/v1/courses/" + courseID + "/assignments/?per_page=100&page=1");
+        xhr.open("GET", "https://" + instance + "/api/v1" + courseID + "/assignments/?per_page=100&page=1");
         xhr.setRequestHeader("Authorization", "Bearer " + token);
 
         xhr.send(data);
@@ -78,7 +78,7 @@ function unmuteAssignmentCall(assignmentID) {
       }
     });
     
-    xhr.open("PUT", "https://" + instance + "api/v1/courses/" + courseID + "/assignments/" + assignmentID + "?assignment[muted]=false");
+    xhr.open("PUT", "https://" + instance + "/api/v1" + courseID + "/assignments/" + assignmentID + "?assignment[muted]=false");
     xhr.setRequestHeader("Authorization", "Bearer " + token);
    
     
