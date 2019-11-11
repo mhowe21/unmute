@@ -1,8 +1,8 @@
-var response1;
-var response2;
 var token = "token";
 var courseID = document.URL.substring(document.URL.indexOf('/courses/'));
 var instance = window.location.hostname;
+var response1;
+var response2;
 
 run();
 
